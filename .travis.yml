@@ -20,8 +20,8 @@ after_success:
   # push them to docker hub
   - docker push estaton/multi-client
   - docker push estaton/multi-nginx
-  - docker push estaton/multi-server:$TAG
-  - docker push estaton/multi-worker:$TAG
+  - docker push estaton/multi-server
+  - docker push estaton/multi-worker
 
 # deploy:
 #   provider: elasticbeanstalk

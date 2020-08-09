@@ -19,7 +19,7 @@ after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # push them to docker hub
   # - docker push estaton/multi-client:$TAG
-  - docker push estaton/multi-nginx:$TAG estaton/multi-nginx
+  - docker push estaton/multi-nginx
   # - docker push estaton/multi-server:$TAG
   # - docker push estaton/multi-worker:$TAG
 

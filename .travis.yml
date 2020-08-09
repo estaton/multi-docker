@@ -19,7 +19,7 @@ after_success:
   # push them to docker hub
   - echo $TRAVIS_TAG
   - docker push estaton/multi-client
-  - docker push estaton/multi-nginx
+  - docker push estaton/multi-nginx:$TRAVIS_TAG
   - docker push estaton/multi-server
   - docker push estaton/multi-worker
 

@@ -4,23 +4,24 @@ services:
 
 before_install:
   - export TAG=$(date +'%Y%m%d%H%M%S')
-  - docker build -t estaton/react-test -f ./client/Dockerfile.dev ./client
+  # - docker build -t estaton/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true estaton/react-test npm test
+  echo "noop"
+  # - docker run -e CI=true estaton/react-test npm test
 
 after_success:
-  - docker build -t estaton/multi-client ./client
+  # - docker build -t estaton/multi-client ./client
   - docker build -t estaton/multi-nginx:$TAG ./nginx
-  - docker build -t estaton/multi-server ./server
-  - docker build -t estaton/multi-worker ./worker
+  # - docker build -t estaton/multi-server ./server
+  # - docker build -t estaton/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # push them to docker hub
-  - docker push estaton/multi-client
+  # - docker push estaton/multi-client
   - docker push estaton/multi-nginx:$TAG
-  - docker push estaton/multi-server
-  - docker push estaton/multi-worker
+  # - docker push estaton/multi-server
+  # - docker push estaton/multi-worker
 
 # deploy:
 #   provider: elasticbeanstalk
